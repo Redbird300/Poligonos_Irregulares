@@ -32,7 +32,7 @@ public class Poligonos_Regulares {
             String ult = "GONO";
             String conj = "KAI";
             String alfa[] = {"","HENA","DI", "TRI","TETRA","PENTA","HEXA","HEPTA", "OCTA", "ENEA"};
-            String beta[] = {"DECA", "ICOSA", "TRICONTA", "TETRACONTA", "PENTACONTA", "HEXACONTA", "HEPTACONTA", "ENEACONTA"};
+            String beta[] = {"","DECA", "ICOSA", "TRICONTA", "TETRACONTA", "PENTACONTA", "HEXACONTA", "HEPTACONTA", "ENEACONTA"};
             String gamma[] = {"HECTA", "CHILIA", "MIRIA", "HECTAMIRIA"};
             if(L < 2){
                 resultado = "No existe.";
@@ -40,8 +40,22 @@ public class Poligonos_Regulares {
                 resultado = "Triangulo";
             }else if(L == 4){
                 resultado = "Cuadrado";
-            }else if(L >= 5){
+            }else if(L >= 5 && L < 10){
                 resultado = alfa[L]+ult;
+            }else if(L >= 10 && L <= 20){
+               String num = String.valueOf(L);
+               char[] digitos = num.toCharArray();
+               int v1 = Integer.parseInt(String.valueOf(digitos[0]));
+               int v2 = Integer.parseInt(String.valueOf(digitos[1]));
+                System.out.println("v1>"+v1);
+                System.out.println("v2>"+v2);
+               resultado = alfa[v2]+beta[v1]+ult;
+            }else if(L >= 21){
+                String num = String.valueOf(L);
+               char[] digitos = num.toCharArray();
+               int v1 = Integer.parseInt(String.valueOf(digitos[0]));
+               int v2 = Integer.parseInt(String.valueOf(digitos[1]));
+               resultado = beta[v1]+conj+alfa[v2]+ult;
             }else{
                 resultado = "No existe.";
             }
